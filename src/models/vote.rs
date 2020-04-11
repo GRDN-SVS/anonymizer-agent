@@ -4,9 +4,9 @@ use serde::{Serialize, Deserialize};
 #[derive(Serialize, Deserialize)]
 pub struct Vote {
     /// The id of the election the vote takes place in
-    pub election_id: u32,
+    pub election_id: i32,
     /// The id of the voter owning this vote
-    pub voter_id: u32,
+    pub voter_id: i32,
     /// The id of the option chosen by the voter
-    pub option: u32,
+    pub option: i32,
 }

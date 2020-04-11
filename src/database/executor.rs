@@ -1,5 +1,3 @@
-pub mod messages;
-
 use std::error::Error;
 use actix::prelude::*;
 use diesel::pg::PgConnection;
@@ -15,13 +13,21 @@ impl Actor for DBExecutor {
     type Context = SyncContext<Self>;
 }
 
-impl Handler<messages::SaveNonce> for DBExecutor {
+/// Message that can be sent to the DBExecutor to
+/// tell it to save a vote to the database.
+pub struct SaveVote {
+    nonce: String,
+    encrypted_option: String,
+}
+impl Message for SaveVote {
+    type Result = Result<(), Box<dyn Error>>;
+}
+impl Handler<SaveVote> for DBExecutor {
     type Result = Result<(), Box<dyn Error>>;
 
-    fn handle(&mut self, msg: messages::SaveNonce, _: &mut Self::Context) -> Self::Result {
-        // Create nonce insertion model
-        let uuid = format!("{}", uuid::Uuid::new_v4());
-        let new_nonce = models::Nonce::new(uuid, msg.nonce);
+    fn handle(&mut self, msg: SaveVote, _: &mut Self::Context) -> Self::Result {
+        // Create vote insertion model
+        // let new_vote = models::db_vote::Vote::new(election_id: i64, nonce: String, encrypted_option: String);
 
         // normal diesel operations
         // diesel::insert_into(nonces)
