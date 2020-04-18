@@ -1,10 +1,8 @@
 # Anonymizer Agent
 
 The Anonymizer agent is an independent compute unit inside the GRDN
-system. It is in charge of receiving votes through HTTP requests from
-the anonymity network, associating a nonce to each of them, encrypting
-its contents, storing the new encrypted vote inside a database, and then
-signling the Judge agent that the vote is ready to be examined.
+system. It is in charge of receiving HTTP requests, creating a nonce,
+storing it inside a database, and returning said nonce to the caller.
 
 ## Built With
 
@@ -12,8 +10,6 @@ signling the Judge agent that the vote is ready to be examined.
     interaction.
   * [**diesel**](https://diesel.rs/) object relational mapper in order
     to interact with the PostreSQL database.
-  * [**sodiumoxide**](https://github.com/sodiumoxide/sodiumoxide)
-    cryptography library to encrypt the contents of the votes.
 
 ## Dev Dependencies
 libpq-dev (postgres)
