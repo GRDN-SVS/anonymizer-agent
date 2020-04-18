@@ -1,5 +1,4 @@
-mod db_election;
-mod db_vote;
+mod db_nonce;
 
-pub use db_election::Election;
-pub use db_vote::Vote;
+pub use db_nonce::Nonce;
+pub use db_nonce::InsertableNonce;

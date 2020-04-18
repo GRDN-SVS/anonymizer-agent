@@ -1,0 +1,4 @@
+CREATE TABLE nonces (
+    id INTEGER PRIMARY KEY,
+    nonce VARCHAR NOT NULL
+);

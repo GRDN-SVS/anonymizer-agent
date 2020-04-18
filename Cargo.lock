@@ -321,6 +321,7 @@ dependencies = [
  "dotenv",
  "reqwest",
  "serde",
+ "textnonce",
  "tokio",
 ]
 
@@ -1632,6 +1633,19 @@ dependencies = [
  "redox_syscall",
  "remove_dir_all",
  "winapi 0.3.8",
+]
+
+[[package]]
+name = "textnonce"
+version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6f5f77d96e0f2c0ba3bd1432de2dd3d74dd576ba42818ee530db3670db48a890"
+dependencies = [
+ "base64",
+ "byteorder",
+ "chrono",
+ "rand",
+ "serde",
 ]
 
 [[package]]

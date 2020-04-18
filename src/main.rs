@@ -3,6 +3,7 @@ extern crate actix_web;
 extern crate actix_rt;
 extern crate tokio;
 extern crate serde;
+
 #[macro_use]
 extern crate diesel;
 extern crate dotenv;

@@ -1,4 +1,4 @@
-mod vote;
+mod nonce;
 pub mod db;
 
-pub use vote::Vote;
+pub use nonce::Nonce;
