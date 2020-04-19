@@ -1,4 +1,3 @@
 mod nonce;
-pub mod db;
 
-pub use nonce::Nonce;
+pub use nonce::{Nonce, InsertableNonce};

@@ -1,4 +1,4 @@
 CREATE TABLE nonces (
-    id INTEGER PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     nonce VARCHAR NOT NULL
 );

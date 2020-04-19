@@ -1,11 +1,18 @@
-use serde::{Serialize, Deserialize};
+use crate::database::schema::nonces;
+use serde::Serialize;
 
-/// Representation of a nonce
-#[derive(Serialize, Deserialize)]
+/// Representation of an Nonce already stored inside the database
+#[derive(Queryable, Serialize)]
 pub struct Nonce {
-    /// The id of the generated nonce
     pub id: i32,
-    /// The nonce text
+    /// Nonce to be used on vote encryption.
     pub nonce: String,
-    
+}
+
+/// Struct used to insert a new Nonce on database
+#[derive(Insertable)]
+#[table_name = "nonces"]
+pub struct InsertableNonce {
+    /// Nonce to be used on vote encryption.
+    pub nonce: String,
 }
