@@ -9,10 +9,12 @@ extern crate diesel;
 extern crate chrono;
 extern crate dotenv;
 extern crate reqwest;
+extern crate sodiumoxide;
 
 use actix_web::{App, HttpServer};
 use dotenv::dotenv;
 use std::env;
+use std::process;
 
 mod config;
 mod database;
@@ -24,6 +26,10 @@ use database::executor::DBExecutor;
 #[actix_rt::main]
 async fn main() -> std::io::Result<()> {
     dotenv().ok();
+    if let Err(_) = sodiumoxide::init() {
+        eprintln!("ERROR: Could not initialize sodiumoxide correctly!");
+        process::exit(1);
+    }
 
     let addr = actix::SyncArbiter::start(2, || {
         DBExecutor::new(&env::var("DATABASE_URL").expect("No DATABASE_URL in .env"))

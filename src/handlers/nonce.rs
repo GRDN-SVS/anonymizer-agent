@@ -1,12 +1,13 @@
 use actix_web::{get, web, HttpResponse, Responder};
+use sodiumoxide::crypto::box_::gen_nonce;
 
 use crate::{config::State, database::executor::SaveNonce};
 
 #[get("/nonce")]
 pub async fn get_nonce(state: web::Data<State>) -> impl Responder {
-    let nonce = textnonce::TextNonce::sized_urlsafe(32)
-        .unwrap()
-        .into_string();
+    let nonce = gen_nonce().0.to_vec();
+
+    println!("{:?}", nonce);
 
     let db_executor = &state.db;
 
