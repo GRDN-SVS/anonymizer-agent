@@ -1,6 +1,6 @@
 table! {
     nonces (id) {
         id -> Int4,
-        nonce -> Varchar,
+        nonce -> Bytea,
     }
 }

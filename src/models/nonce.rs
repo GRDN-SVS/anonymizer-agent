@@ -6,7 +6,7 @@ use serde::Serialize;
 pub struct Nonce {
     pub id: i32,
     /// Nonce to be used on vote encryption.
-    pub nonce: String,
+    pub nonce: Vec<u8>,
 }
 
 /// Struct used to insert a new Nonce on database
@@ -14,5 +14,5 @@ pub struct Nonce {
 #[table_name = "nonces"]
 pub struct InsertableNonce {
     /// Nonce to be used on vote encryption.
-    pub nonce: String,
+    pub nonce: Vec<u8>,    
 }

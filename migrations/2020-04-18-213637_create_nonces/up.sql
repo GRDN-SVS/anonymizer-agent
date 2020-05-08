@@ -1,4 +1,4 @@
 CREATE TABLE nonces (
     id SERIAL PRIMARY KEY,
-    nonce VARCHAR NOT NULL
+    nonce BYTEA NOT NULL
 );

@@ -1,4 +1,3 @@
-extern crate textnonce;
 use actix::prelude::*;
 use diesel::pg::PgConnection;
 use diesel::query_dsl::RunQueryDsl;
@@ -29,7 +28,7 @@ impl Actor for DBExecutor {
 /// Message that can be sent to the DBExecutor to
 /// tell it to save a nonce to the database.
 pub struct SaveNonce {
-    pub nonce: String,
+    pub nonce: Vec<u8>,
 }
 
 impl Message for SaveNonce {
