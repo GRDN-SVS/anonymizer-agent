@@ -9,7 +9,7 @@ storing it inside a database, and returning said nonce to the caller.
   * [**actix-web**](https://actix.rs/) framework to manage web
     interaction.
   * [**diesel**](https://diesel.rs/) object relational mapper in order
-    to interact with the PostreSQL database.
+    to interact with the PostgreSQL database.
 
 ## Dev Dependencies
 libpq-dev (postgres)
