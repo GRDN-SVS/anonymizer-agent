@@ -40,7 +40,7 @@ async fn main() -> std::io::Result<()> {
             .data(config::State { db: addr.clone() })
             .service(handlers::nonce::get_nonce)
     })
-    .bind("127.0.0.1:8080")?
+    .bind(format!("{}:8080", &env::var("APP_URL").expect("No APP_URL in .env")))?
     .run()
     .await
 }
